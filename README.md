@@ -17,21 +17,15 @@ ferriswheel_challenge.py [-h] [--synonyms SYNONYMS_FILENAME]
 
 **Argument Parser for Product Classifier**
 
-positional arguments:
-data_filename         Path to json product data file\
-categories_filename   Path to txt file containing list of categories
-w2v_filename          Path to Word2Vec Embeddings File
+Positional arguments:\
+*data_filename* - Path to json product data file\
+*categories_filename* - Path to txt file containing list of categories\
+*w2v_filename* - Path to Word2Vec Embeddings File
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --synonyms SYNONYMS_FILENAME
-                        Path to txt file containing list of synonyms for
-                        categories. First synonym MUST be category name.
-  --stop STOPWORDS_FILENAME
-                        Optional path to txt file containing stopwords
-  --images WRITE_IMAGES
-                        0 or 1. Option to write images of items into assigned
-                        category folders
+Optional arguments:\
+*--synonyms* - Path to txt file containing list of synonyms for categories. First synonym MUST be category name.\
+*--stop* - Optional path to txt file containing stopwords\
+*--images* - 0 or 1. Option to write images of items into assigned category folders
 
 ## Output:
 
