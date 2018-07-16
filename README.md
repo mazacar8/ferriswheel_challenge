@@ -1,6 +1,6 @@
 # Ferriswheel Challenge
 
-This code categorizes the 1000 fashion items described in product_data.json into 13 possible categories specified in product_categories.txt.
+This code categorizes the 1000 fashion items described in product_data.json into 13 possible categories specified in product_categories.txt. It does so by comparing the Word2Vec embeddings of words in the descriptions of these items to the category names and their synonyms. The most likely category is then chosen given the similarity between the description and category is greater than a certain threshold. If less than the threshold, the item is classified into the "others" category.
 
 ## Requirements:
  
@@ -8,10 +8,12 @@ The only required files are the data JSON, product_categories.txt and the Word2V
 
 ## Usage:
 
+'''
 ferriswheel_challenge.py [-h] [--synonyms SYNONYMS_FILENAME]
                                 [--stop STOPWORDS_FILENAME]
                                 [--images WRITE_IMAGES]
                                 data_filename categories_filename w2v_filename
+'''
 
 Argument Parser for Product Classifier
 
