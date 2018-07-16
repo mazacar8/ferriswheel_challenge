@@ -1,4 +1,4 @@
-# ferriswheel_challenge
+# Ferriswheel Challenge
 
 This code categorizes the 1000 fashion items described in product_data.json into 13 possible categories specified in product_categories.txt.
 
