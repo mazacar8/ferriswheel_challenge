@@ -18,9 +18,9 @@ ferriswheel_challenge.py [-h] [--synonyms SYNONYMS_FILENAME]
 **Argument Parser for Product Classifier**
 
 positional arguments:
-data_filename           Path to json product data file
-  categories_filename   Path to txt file containing list of categories
-  w2v_filename          Path to Word2Vec Embeddings File
+data_filename         Path to json product data file
+categories_filename   Path to txt file containing list of categories
+w2v_filename          Path to Word2Vec Embeddings File
 
 optional arguments:
   -h, --help            show this help message and exit
