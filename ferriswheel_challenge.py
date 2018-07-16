@@ -10,8 +10,11 @@ def parse_arguments():
 						help="Path to json product data file")
 	parser.add_argument('categories_filename', type=str,
 						help="Path to txt file containing list of categories")
-	parser.add_argument('categories_synonyms', type=str,\
-		help="Path to txt file containing list of synonyms for categories")
+	parser.add_argument('w2v_filename', type=str,
+						help="Path to Word2Vec Embeddings File")
+	parser.add_argument('--synonyms',dest='synonyms_filename', type=str,\
+		default = None,\
+		help="Path to txt file containing list of synonyms for categories. First synonym MUST be category name.")
 	parser.add_argument('--stop',dest='stopwords_filename',type=str,\
 		default=None,help="Optional path to txt file containing stopwords")
 	parser.add_argument('--images',dest='write_images',type=int,default=0,\
@@ -33,10 +36,14 @@ def parse_files(data_f,cat_f,stop_f,syn_f,write_images=False):
 			stopwords = f.read().splitlines()
 
 	cat_synonyms = dict()
-	with open(syn_f) as f:
-		for line in f.readlines():
-			synonyms = line.strip().lower().split(' ')
-			cat_synonyms[synonyms[0]] = synonyms
+	for cat in categories:
+		cat_synonyms[cat] = [cat]
+
+	if syn_f:
+		with open(syn_f) as f:
+			for line in f.readlines():
+				synonyms = line.strip().lower().split(' ')
+				cat_synonyms[synonyms[0]] = synonyms
 
 	#Creating/Emptying folders to write images into for each category
 	if write_images:
@@ -136,13 +143,13 @@ def main(args):
 	print("Parsing Files...")
 	data, categories, stopwords, cat_synonyms = \
 	parse_files(args.data_filename,args.categories_filename,\
-		args.stopwords_filename,args.categories_synonyms,args.write_images)
+		args.stopwords_filename,args.synonyms_filename,args.write_images)
 
 	embeddings = []
 	cat_vecs = []
 	print("Loading Word2Vec Model...")
 	embeddings = gensim.models.KeyedVectors.load_word2vec_format\
-	('./w2v/GoogleNews-vectors-negative300.bin', binary=True)
+	(args.w2v_filename, binary=True)
 
 	print("Loading Category Embeddings...")
 	cat_vecs = dict()
