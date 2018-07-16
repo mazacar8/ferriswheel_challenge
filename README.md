@@ -8,12 +8,12 @@ The only required files are the data JSON, product_categories.txt and the Word2V
 
 ## Usage:
 
-'''
+```
 ferriswheel_challenge.py [-h] [--synonyms SYNONYMS_FILENAME]
                                 [--stop STOPWORDS_FILENAME]
                                 [--images WRITE_IMAGES]
                                 data_filename categories_filename w2v_filename
-'''
+```
 
 Argument Parser for Product Classifier
 
